@@ -1,15 +1,7 @@
 import React, { Component } from 'react';
 import * as firebase from 'firebase';
 
-const config = {
-   apiKey: "AIzaSyCgxBWVxMiIu-Nx12JS4anxWQcS6spczZY",
-   authDomain: "jersey-history.firebaseapp.com",
-   databaseURL: "https://jersey-history.firebaseio.com",
-   projectId: "jersey-history",
-   storageBucket: "jersey-history.appspot.com",
-   messagingSenderId: "807012060306"
- };
- firebase.initializeApp(config);
+
 
 class PlayerFace extends React.Component {
 
