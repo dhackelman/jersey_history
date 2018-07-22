@@ -1,5 +1,181 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+  background: white;
+}
+.jersey_row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 85%;
+  margin: 4% auto;
+}
+
+.jersey_img {
+  max-width: 150px;
+}
+.jersey_individual {
+   position: relative;
+}
+.jersey_number, .jersey_number_large {
+  text-align: center;
+  color: #6CAEDF;
+  position: absolute;
+  top: 40%;
+  font-family: 'Bowlby One SC', cursive;
+  font-size: 28px;
+  -webkit-text-stroke-width: 1.5px;
+   -webkit-text-stroke-color: black;
+  width: 100%;
+}
+.jersey_number_large {
+  font-size: 55px;
+  top: 38%;
+}
+.unseen {
+  display: none;
+}
+.focus_container {
+  background: rgba(0,0,0,0.5);
+  margin: 0 ;
+  width: 100%;
+  height: 200%;
+  top: 0px;
+  position: absolute;
+  left: 0px;
+
+}
+.jersey_list {
+  margin-right: 2%;
+  width: 38%;
+}
+.jersey_large {
+  width: 40%;
+  position: relative;
+}
+.jersey_focus {
+  align-items: center;
+  background: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 5% auto;
+  width: 55%;
+  position: relative;
+}
+.jersey_feature{
+  width: 100%;
+}
+.small-head {
+  border-radius: 50%;
+  width: 50px;
+}
+.player_info {
+  background: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  margin: 15px 15px 0 0;
+  min-height: 50px;
+  padding: 10px;
+  width: 95%;
+}
+.face {
+  border-radius: 50%;
+  margin: 5px 15px;
+  width: 50px;
+  height: 50px !important;
+}
+.name, .years {
+  font-family: 'Oxygen', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 5px;
+  text-align: center;
+}
+.close_focus{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.close_focus img {
+  height: 30px;
+  width: 30px;
+}
+
+
+
+@media (max-width: 1050px) {
+  .jersey_number_large{
+    font-size: 55px;
+    top: 40%;
+  }
+  .jersey_focus {
+      flex-direction: column;
+      margin: 10px auto;
+      width: 80%;
+  }
+  .close_focus {
+      top: 50px;
+      right: 50px;
+  }
+  .close_focus img {
+    width: 35px;
+    height: 35px;
+  }
+  .jersey_list {
+    margin: 0 auto;
+    width: 50%;
+  }
+  .player_info {
+    margin: 10px auto;
+  }
+  .face {
+    margin: 5px 25px;
+    min-height: 80px;
+    width: 80px;
+  }
+}
+@media (max-width: 800px) {
+  .jersey_number_large {
+    font-size: 38px;
+    -webkit-text-stroke-width: 2px;
+  }
+  .player_info {
+    background-color: transparent;
+    flex-direction: column;
+    align-items: center;
+  }
+  .face{
+    border: 2px solid white;
+  }
+  .player_name_years {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+}
+@media (max-width: 525px) {
+  .jersey_focus{
+    width: 100%;
+  }
+  .jersey_large {
+    width: 80%;
+  }
+  .close_focus{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+  }
+  .jersey_number_large {
+/*     font-size: 28px; */
+    -webkit-text-stroke-width: 1.5px;
+  }
+  .face {
+    margin: 5px auto;
+  }
 }
