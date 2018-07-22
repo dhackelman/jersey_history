@@ -105,7 +105,7 @@ class AllJerseysEver extends React.Component {
 
   componentWillMount() {
     const dbRefObject = firebase.database().ref().child('jerseys');
-    // dbRefObject.on('value', snap => console.log(snap.val()));
+    dbRefObject.on('value', snap => console.log(snap.val()));
     dbRefObject.on('value', snap => this.setState({jerseys: snap.val()}));
   }
 
@@ -144,4 +144,4 @@ class AllJerseysEver extends React.Component {
   }
 }
 
-export default Jerseys;
+export default AllJerseysEver;
