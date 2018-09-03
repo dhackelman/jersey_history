@@ -1,1 +1,1 @@
-React / Firebase Web tool to search history of player jerseys by #.
+React / Firebase Web tool to show history of player jerseys by #.
