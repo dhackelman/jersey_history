@@ -95,7 +95,7 @@ class AllJerseysEver extends React.Component {
   }
 
   doSort(arr) {
-    let sortedJerseyNumbers = arr.sort(function(a, b) {
+    let sortedJerseyNumbers = arr.sort((a, b) => {
       return a.number - b.number;
     });
     return sortedJerseyNumbers;
