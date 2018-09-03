@@ -6,14 +6,14 @@ import * as firebase from 'firebase';
 class PlayerFace extends React.Component {
 
   render() {
-    var faceStyle = {
+    let faceStyle = {
 
       backgroundImage: 'url(' + this.props.face + ')',
       backgroundColor: 'black',
       backgroundSize: 'cover',
     };
     return(
-        <div className="face" style={faceStyle}>
+        <div key={this.props.face} className="face" style={faceStyle}>
         </div>
     );
   }
@@ -39,7 +39,7 @@ class PlayerList extends React.Component {
 
 class JerseyFeature extends React.Component {
   closeFocus(){
-    var jerseyFocusContainer = document.querySelector(".focus_container");
+    let jerseyFocusContainer = document.querySelector(".focus_container");
     jerseyFocusContainer.classList.toggle("unseen");
   }
   render() {
@@ -48,13 +48,6 @@ class JerseyFeature extends React.Component {
         <div className="jersey_focus">
           <div className="close_focus" onClick={()=>this.closeFocus()}>
             <img src='https://www.brainpop.com//math/numbersandoperations/multiplication/icon.png' />
-          </div>
-          <div className="jersey_large">
-            <img
-              className="jersey_feature "
-              src="http://i.imgur.com/GbZdelj.png"
-            />
-            <div className="jersey_number_large">{this.props.number}</div>
           </div>
           <PlayerList list={this.props.players} />
         </div>
@@ -97,19 +90,26 @@ class AllJerseysEver extends React.Component {
 
   componentWillMount() {
     const dbRefObject = firebase.database().ref().child('jerseys');
-    dbRefObject.on('value', snap => console.log(snap.val()));
-    dbRefObject.on('value', snap => this.setState({jerseys: snap.val()}));
+    dbRefObject.on('value', snap => this.doSort(snap.val()));
+    dbRefObject.on('value', snap => this.setState({jerseys: this.doSort(snap.val()) }));
+  }
+
+  doSort(arr) {
+    let sortedJerseyNumbers = arr.sort(function(a, b) {
+      return a.number - b.number;
+    });
+    return sortedJerseyNumbers;
   }
 
   jerseyInFocus(arg1, arg2, arg3) {
-    var thisJersey = arg1.currentTarget;
+    let thisJersey = arg1.currentTarget;
     this.setState({
       feature: {
         number: arg2,
         players: arg3
       }
     });
-    var focusContainer = document.querySelector(".focus_container");
+    let focusContainer = document.querySelector(".focus_container");
     focusContainer.classList.toggle("unseen");
     window.scrollTo(0, 0);
   }
